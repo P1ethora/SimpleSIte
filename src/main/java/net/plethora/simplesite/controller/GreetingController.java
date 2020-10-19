@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -32,7 +29,7 @@ public class GreetingController {
         return "greeting";
     }
 
-    @GetMapping
+    @GetMapping("/")
     public String main(Map<String, Object> model) {
         Iterable<Message> messages = messageRepo.findAll();
 
@@ -41,8 +38,8 @@ public class GreetingController {
         return "main";
     }
 
-    @PostMapping
-    public String add(@RequestParam String text, @RequestParam String tag, Map<String, Object> model) {
+    @PostMapping("add")
+    public String add(@RequestParam String text, String tag, Map<String, Object> model) {
         Message message = new Message(text, tag);
 
         messageRepo.save(message);

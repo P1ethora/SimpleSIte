@@ -2,20 +2,18 @@
 
 <body>
 <div>
-    <form method="post">
-        <label>
+    <form method="post" action ="add" >
             <input type="text" name="text" placeholder="Введите сообщение" />
-            <input type="text" name="tag" placeholder="Тэг">
-        </label>
+            <input type="text" name="tag" placeholder="Тэг"/>
         <button type="submit">Добавить</button>
     </form>
 </div>
 <div>Список сообщений</div>
 <form method="post" action="filter">
-    <label>
+
         <input type="text" name="filter" placeholder="Строка">
         <button type="submit">Найти</button>
-    </label>
+
 </form>
 {{#messages}}
     <div>
